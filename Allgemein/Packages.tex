@@ -1,0 +1,34 @@
+% Anpassung an Landessprache ---------------------------------------------------
+\usepackage{babel}
+
+% Umlaute ----------------------------------------------------------------------
+%   Umlaute/Sonderzeichen wie äüöß direkt im Quelltext verwenden (CodePage).
+%   Erlaubt automatische Trennung von Worten mit Umlauten.
+% ------------------------------------------------------------------------------
+\usepackage[T1]{fontenc}
+\usepackage{textcomp} % Euro-Zeichen etc.
+
+% Schrift ----------------------------------------------------------------------
+\usepackage[pdfspacing]{classicthesis}
+\usepackage{lmodern} % bessere Fonts
+\usepackage{relsize} % Schriftgröße relativ festlegen
+
+% Einfache Definition der Zeilenabstände und Seitenränder etc.
+\usepackage{setspace}
+\usepackage{geometry}
+
+% Grafiken ---------------------------------------------------------------------
+\usepackage[dvips,final]{graphicx} % Einbinden von JPG-Grafiken ermöglichen
+\usepackage{smartdiagram}
+\usepackage{graphics} % keepaspectratio
+\usepackage{floatflt} % zum Umfließen von Bildern
+\graphicspath{{Bilder/}} % hier liegen die Bilder des Dokuments
+
+% Sonstiges --------------------------------------------------------------------
+\usepackage[titles]{tocloft} % Inhaltsverzeichnis DIN 5008 gerecht einrücken
+\usepackage{amsmath,amsfonts} % Befehle aus AMSTeX für mathematische Symbole
+\usepackage{enumitem} % anpassbare Enumerates/Itemizes
+\usepackage{xspace} % sorgt dafür, dass Leerzeichen hinter parameterlosen Makros nicht als Makroendezeichen interpretiert werden
+
+\usepackage{makeidx} % für Index-Ausgabe mit \printindex
+\usepackage[printonlyused]{acronym} % es werden nur benutzte Definitionen aufgelistet

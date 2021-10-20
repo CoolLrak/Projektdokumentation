@@ -1,0 +1,21 @@
+% !TEX root = ../Projektdokumentation.tex
+
+\usepackage[
+	automark, % Kapitelangaben in Kopfzeile automatisch erstellen
+]{scrlayer-scrpage}
+
+% Kopf- und Fußzeilen ----------------------------------------------------------
+\pagestyle{scrheadings}
+
+% Kopfzeile
+\renewcommand{\headfont}{\normalfont} % Schriftform der Kopfzeile
+\ihead{\large{\textsc{\titel}}\\ \small{\untertitel} \\[2ex] \textit{\headmark}}
+\chead{}
+\ohead{\includegraphics[scale=0.1]{\betriebLogo}}
+\setlength{\headheight}{10mm} % Höhe der Kopfzeile
+%\setheadwidth[0pt]{textwithmarginpar} % Kopfzeile über den Text hinaus verbreitern (falls Logo den Text überdeckt)
+
+% Fußzeile
+\ifoot{\autorName}
+\cfoot{}
+\ofoot{\pagemark}
