@@ -1,7 +1,13 @@
 % !TEX root = ../Projektdokumentation.tex
 
+% Seitenränder -----------------------------------------------------------------
+\setlength{\topskip}{\ht\strutbox} % behebt Warnung von geometry
+\geometry{a4paper,left=20mm,right=20mm,top=25mm,bottom=35mm}
+
 \usepackage[
 	automark, % Kapitelangaben in Kopfzeile automatisch erstellen
+	headsepline=.4pt,
+	plainheadsepline
 ]{scrlayer-scrpage}
 
 % Kopf- und Fußzeilen ----------------------------------------------------------
@@ -11,7 +17,7 @@
 \renewcommand{\headfont}{\normalfont} % Schriftform der Kopfzeile
 \ihead{\large{\textsc{\titel}}\\ \small{\untertitel} \\[2ex] \textit{\headmark}}
 \chead{}
-\ohead{\includegraphics[scale=0.1]{\betriebLogo}}
+\ohead{\includegraphics[scale=1.05]{\betriebLogo}}
 \setlength{\headheight}{10mm} % Höhe der Kopfzeile
 %\setheadwidth[0pt]{textwithmarginpar} % Kopfzeile über den Text hinaus verbreitern (falls Logo den Text überdeckt)
 
@@ -19,3 +25,35 @@
 \ifoot{\autorName}
 \cfoot{}
 \ofoot{\pagemark}
+
+\newcommand{\headingSpace}{1.5cm}
+
+\renewcommand*{\othersectionlevelsformat}[3]{
+  \makebox[\headingSpace][l]{#3\autodot}
+}
+
+\cftsetindents{section}{0.0cm}{\headingSpace}
+\cftsetindents{subsection}{0.0cm}{\headingSpace}
+\cftsetindents{subsubsection}{0.0cm}{\headingSpace}
+\cftsetindents{figure}{0.0cm}{\headingSpace}
+\cftsetindents{table}{0.0cm}{\headingSpace}
+
+\onehalfspacing % Zeilenabstand 1,5 Zeilen
+\frenchspacing % erzeugt ein wenig mehr Platz hinter einem Punkt
+
+\clubpenalty = 10000
+\widowpenalty = 10000
+\displaywidowpenalty = 10000
+
+\counterwithout{footnote}{section} % Fußnoten fortlaufend durchnummerieren
+\setcounter{tocdepth}{3} % im Inhaltsverzeichnis werden die Kapitel bis zum Level der subsubsection übernommen
+\setcounter{secnumdepth}{3} % Kapitel bis zum Level der subsubsection werden nummeriert
+
+% Aufzählungen anpassen
+\renewcommand{\labelenumi}{\arabic{enumi}.}
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}.}
+\renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}}
+
+% Tabellenfärbung:
+\definecolor{heading}{rgb}{0.64,0.78,0.86}
+\definecolor{odd}{rgb}{0.9,0.9,0.9}
