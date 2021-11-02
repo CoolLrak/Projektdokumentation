@@ -6,7 +6,7 @@
 	parskip=half, % vertikalen Abstand zwischen Absätzen verwenden anstatt horizontale Einrückung von Folgeabsätzen
 	numbers=noendperiod % Den letzten Punkt nach einer Nummerierung entfernen (nach DIN 5008)
 ]{scrartcl}
-\PassOptionsToPackage{automark, headsepline=.4pt, plainheadsepline}{scrlayer-scrpage}
+\PassOptionsToPackage{automark, headsepline, ilines}{scrlayer-scrpage}
 
 \pdfminorversion=5 % erlaubt das Einfügen von pdf-Dateien bis Version 1.7, ohne eine Fehlermeldung zu werfen (keine Garantie für fehlerfreies Einbetten!)
 \usepackage[utf8]{inputenc} % muss als erstes eingebunden werden, da Meta/Packages ggfs. Sonderzeichen enthalten
@@ -30,14 +30,46 @@
 \cleardoublepage
 
 % Preface --------------------------------------------------------------------
-\renewcommand{\contentsname}{Inhaltsverzeichnis}
 \phantomsection
 \pagenumbering{Roman}
 \pdfbookmark[1]{Inhaltsverzeichnis}{inhalt}
 \tableofcontents
 \cleardoublepage
 
+\phantomsection
+\listoffigures
+\cleardoublepage
+
+\phantomsection
+\listoftables
+\cleardoublepage
+
+\phantomsection
+\lstlistoflistings
+\cleardoublepage
+
+\newcommand{\abkvz}{Abkürzungsverzeichnis}
+\renewcommand{\nomname}{\abkvz}
+\section*{\abkvz}
+\markboth{\abkvz}{\abkvz}
+\addcontentsline{toc}{section}{\abkvz}
+\input{Abkuerzungen}
+\clearpage
+
 \pagenumbering{arabic}
 \input{Inhalt.tex}
+
+% Literatur ------------------------------------------------------------------
+\clearpage
+\renewcommand{\refname}{Literaturverzeichnis}
+\bibliography{Bibliographie}
+\bibliographystyle{Allgemein/natdin} % DIN-Stil des Literaturverzeichnisses
+\input{Erklaerung}
+
+% Anhang ---------------------------------------------------------------------
+\clearpage
+\appendix
+\pagenumbering{roman}
+\input{Anhang}
 
 \end{document}

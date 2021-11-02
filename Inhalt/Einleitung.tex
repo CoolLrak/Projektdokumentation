@@ -20,6 +20,22 @@ Insgesamt hat {\betriebNameKzf} mehr als 3.200 Mitarbeiter in 17 Ländern.
 
 \subsection{Projektauslöser} 
 \label{sec:Projektauslöser}
-Durch den Vertrieb diverser Automatisierungslösungen zur Diagnostik, ist ein weiteres Standbein von {\betriebNameKzf} der Verkauf der Betriebsmittel für die Diagnostikgeräte. Zur Zeit ist es nicht möglich die reellen Resourcenverbräuche der Diagnostikgeräte der Kunden zu überwachen, da es keine Software gibt, die die Ressourcenverbräuche abfragen kann. Die aktuelle Lösung bedarf der manuellen Bearbeitung mithilfe von Außendienstmitarbeitern, die die Labore besuchen. 
+Durch den Vertrieb diverser Automatisierungslösungen zur Diagnostik, ist ein weiteres Standbein von {\betriebNameKzf} der Verkauf der Betriebsmittel für die Diagnostikgeräte. Zur Zeit ist es nicht möglich die reellen Resourcenverbräuche der Diagnostikgeräte der Kunden zu überwachen, da es keine Software gibt, die diese abfragen kann. Die aktuelle Lösung bedarf der manuellen Bearbeitung mithilfe von Außendienstmitarbeitern, die die Labore besuchen.
 
 Da dies sehr zeit- und kostenintensiv ist, soll eine Software entwickelt werden, die die Ressourcen der Geräte abfragen und graphisch aufarbeiten kann. Es soll eine Schnittstelle bereit gestellt werden, die von den unterschiedlichen Gerätesoftwares implementiert werden kann, sodass über ein zentrales System die gesamten Ressourcenverbräuche innerhalb eines Labors gleichzeitig abgefragt werden können.
+
+\subsection{Projektumfeld}
+\label{sec:Projektumfeld}
+Das Projektumfeld ist der {\betriebNameKzf} Standort in Dassow. Dort befindet sich ein Teil der Entwicklung der Diagnostikgeräte und der zugehörigen Software. 
+
+Bei diesem Projekt handelt es sich um eine Software, die ausschließlich intern eingesetzt werden soll.
+
+\subsection{Projektziel}
+\label{sec:Projektziel}
+Ziel des Projekts ist es eine Software zu programmieren, die unabhängig von Diagnostikgerät, mithilfe der gegebenen Schnittstelle, die Ressourcenverbräuche, in einem angegebenen Zeitraum, abfragen kann, diese graphisch aufbereitet und ein Export möglich ist.
+
+\subsection{Projektschnittstellen}
+\label{sec:Projektschnittstellen}
+Das Projekt stellt eine gRPC Schnittstelle bereit. Diese wird mithilfe einer \glqq .proto\grqq \xspace Datei definiert. Die Schnittstelle wird auf Seite des Clients implementiert und auf Seite des Servers offen gelassen, sodass die unterschiedlichen Softwares der Diagnostikgeräte diese implementieren können und die Freiheit haben, je nach Architektur und Speicherung, die Daten bereitzustellen.
+
+Des Weiteren wird der Export einer \glqq .xlsx\grqq \xspace Datei angeboten.

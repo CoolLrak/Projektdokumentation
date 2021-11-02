@@ -6,9 +6,19 @@
 
 \usepackage[
 	automark, % Kapitelangaben in Kopfzeile automatisch erstellen
-	headsepline=.4pt,
-	plainheadsepline
+	headsepline,
+	ilines
 ]{scrlayer-scrpage}
+
+% Inhaltsverzeichnis
+\DeclareTOCStyleEntries[
+dynindent
+]{tocline}{section,subsection,subsubsection,paragraph,subparagraph, figure, table}
+
+% Tabellenverzeichnis
+\usepackage{tocloft}
+\renewcommand{\cfttabpresnum}{Tabelle~}
+\newlength{\tabnumw}\settowidth{\tabnumw}{\bfseries\sffamily Tabelle~99}
 
 % Kopf- und Fußzeilen ----------------------------------------------------------
 \pagestyle{scrheadings}
@@ -31,6 +41,10 @@
 \renewcommand*{\othersectionlevelsformat}[3]{
   \makebox[\headingSpace][l]{#3\autodot}
 }
+
+\titleformat{\section}
+{\normalfont\sffamily\Large\bfseries}
+{\thesection}{1em}{}
 
 \cftsetindents{section}{0.0cm}{\headingSpace}
 \cftsetindents{subsection}{0.0cm}{\headingSpace}
