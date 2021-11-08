@@ -1,0 +1,19 @@
+% !TEX root = ../Projektdokumentation.tex
+\section{Realisierung}
+\label{sec:Realisierung}
+
+\subsection{Eingesetzte Technologien}
+\label{sec:EingesetzteTechnologien}
+Für die Entwicklung der Schnittstelle mit der die Verbräuche der Betriebsmittel der Diagnostikgeräte abgefragt werden, wird {\acs{gRPC}} verwendet. {\acs{gRPC}} ist ein Open-Source {\acs{RPC}} System, welches von Google entwickelt wird.
+
+{\ac{RPC}} ist eine Technologie, die es möglich macht, Prozeduren auf anderen Geräte auszuführen, als auf dem, wo es aufgerufen wird (meistens innerhalb eines Netzwerks). Durch diese Auslagerung kann Datenverarbeitung auf andere Geräte ausgelagert werden, ohne dass ein Unterschied in der Entwicklung entsteht. Daraus ergibt sich eine Form der Client-Server-Architektur, bei der der aufrufende Part den Client und der ausführende Part den Server darstellt. Die Kommunikation basiert auf dem \glqq request-response\grqq \space Protokoll, welche synchron via http abläuft. Schickt der Client eine Abfrage, ist er während der Bearbeitung durch den Server blockiert\footnote{Vgl. Wikipedia: \url{https://en.wikipedia.org/wiki/Remote_procedure_call} (Stand 08.11.2021 10:15 Uhr)}.
+
+Die Wahl der Technologie fiel auf {\acs{gRPC}}, da dieses bereits in der Firma genutzt wurde und somit eine Vorgabe darstellte.
+
+Die Anwendung wird mit C\# entwickelt. Dafür wird die Version 4.8 des .NET Frameworks verwendet.
+
+Zum exportieren von \glqq .xlsx\grqq \space Dateien wird das {\acs{NuGet}}-Paket \glqq Microsoft.Office.Interop.Excel\grqq \space verwendet. Die Dokumentation befindet sich auf der Microsoft Docs Webseite\footnote{Microsoft.Office.Interop.Excel: \url{https://docs.microsoft.com/en-us/dotnet/api/microsoft.office.interop.excel?view=excel-pia}} des Frameworks.
+
+Für die graphische Benutzeroberfläche wird die {\betriebNameKzf} interne {\acs{Material Design}} Bibliothek verwendet.
+
+Zur Strukturierung der Software-Architektur wird {\acs{Prism}} eingesetzt. Durch die Nutzung ergibt sich eine einfach Verwendung von  {\acs{IoC}}, die die Struktur der Software deutlich übersichtlicher gestalten lässt.

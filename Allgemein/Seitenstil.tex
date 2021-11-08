@@ -2,7 +2,7 @@
 
 % Seitenränder -----------------------------------------------------------------
 \setlength{\topskip}{\ht\strutbox} % behebt Warnung von geometry
-\geometry{a4paper,left=20mm,right=20mm,top=25mm,bottom=35mm}
+\geometry{a4paper,left=20mm,right=20mm,top=35mm,bottom=35mm}
 
 \usepackage[
 	automark, % Kapitelangaben in Kopfzeile automatisch erstellen
@@ -43,8 +43,17 @@ dynindent
 }
 
 \titleformat{\section}
-{\normalfont\sffamily\Large\bfseries}
-{\thesection}{1em}{}
+{\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}
+{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+{\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titleformat{\subparagraph}
+{\normalfont\normalsize\bfseries}{\thesubparagraph}{1em}{}
+
+\titlespacing{\subsubsection}{15pt}{3ex plus 1ex minus .2ex}{3ex plus .2ex}
 
 \cftsetindents{section}{0.0cm}{\headingSpace}
 \cftsetindents{subsection}{0.0cm}{\headingSpace}
@@ -69,5 +78,5 @@ dynindent
 \renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}}
 
 % Tabellenfärbung:
-\definecolor{heading}{rgb}{0.64,0.78,0.86}
+\definecolor{heading}{RGB}{109,208,147}
 \definecolor{odd}{rgb}{0.9,0.9,0.9}
