@@ -1,0 +1,56 @@
+\subsection{Definition der gRPC Schnittstelle}
+\label{app:DefinitionSchnittstelle}
+
+\lstset{language=protobuf2, style=protobuf}
+\begin{lstlisting}[caption={Serverseitige Klasse}]
+	syntax = "proto3";
+	
+	option csharp_namespace = "Euroimmun.EUROLabWorkflowPlanner.RPCServer.gRPCGenerated";
+	
+	message Processing {
+		int32 Id = 1;
+		string DeviceName = 2;
+		string ProcessingName = 3;
+		Timestamp StartTime = 4;
+		
+		repeated Consumption Consumptions = 5;
+	}
+	
+	message Consumption {
+		int32 Id = 1;
+		int32 Count = 2;
+		string Name = 3;
+		
+		repeated Resource Resources = 4;
+	}
+	
+	message Resource {
+		int32 Id = 1;
+		string Name = 2;
+		string CodeId = 3;
+		string Type = 4;
+		double Amount = 5;
+		string Unit = 6;
+	}
+	
+	message GetProcessingsResponse {
+		repeated Processing Processings = 1;
+	}
+	
+	message Timestamp {
+		int32 Year = 1;
+		int32 Month = 2;
+		int32 Days = 3;
+		int32 Hours = 4;
+		int32 Minutes = 5;
+	}
+	
+	message GetProcessingsRequest {
+		Timestamp FromDate = 1;
+		Timestamp ToDate = 2;
+	}
+	
+	service EUROLabWorkflowPlannerService {
+		rpc GetProcessings(GetProcessingsRequest) returns (GetProcessingsResponse) {}
+	}
+\end{lstlisting}

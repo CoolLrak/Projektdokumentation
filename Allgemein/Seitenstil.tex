@@ -2,7 +2,7 @@
 
 % Seitenränder -----------------------------------------------------------------
 \setlength{\topskip}{\ht\strutbox} % behebt Warnung von geometry
-\geometry{a4paper,left=20mm,right=20mm,top=35mm,bottom=35mm}
+\geometry{a4paper,left=25mm,right=25mm,top=35mm,bottom=35mm}
 
 \usepackage[
 	automark, % Kapitelangaben in Kopfzeile automatisch erstellen
@@ -13,7 +13,7 @@
 % Inhaltsverzeichnis
 \DeclareTOCStyleEntries[
 dynindent
-]{tocline}{section,subsection,subsubsection,paragraph,subparagraph, figure, table}
+]{tocline}{section, subsection, subsubsection, paragraph, subparagraph, figure, table}
 
 % Tabellenverzeichnis
 \usepackage{tocloft}
@@ -80,3 +80,5 @@ dynindent
 % Tabellenfärbung:
 \definecolor{heading}{RGB}{109,208,147}
 \definecolor{odd}{rgb}{0.9,0.9,0.9}
+
+\lstdefinestyle{sharpc}{language=[Sharp]C, frame=lr, rulecolor=\color{blue!80!black}}

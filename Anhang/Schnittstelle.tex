@@ -1,0 +1,171 @@
+\subsection{Serverseitige Klasse}
+\label{app:ServerseitigeKlasse}
+
+\lstset{style=sharpc}
+\begin{lstlisting}[caption={Serverseitige Klasse}]
+	public class RPCServer
+	{
+		#region Fields
+		
+		private readonly Server _server;
+		
+		#endregion
+		
+		#region Constructors
+		
+		/// <summary>
+		/// Creates the RPC-Server with the fewest necessary values
+		/// </summary>
+		/// <param name="host"></param>
+		/// <param name="port"></param>
+		/// <param name="EUROLabWorkflowPlannerService"></param>
+		public RPCServer(string host, int port,
+		IEUROLabWorkflowPlannerService euroLabWorkflowPlannerService)
+		{
+			if (host == null)
+			throw new NullReferenceException("Host");
+			if (port == 0)
+			throw new NullReferenceException("Port");
+			
+			_server = new Server
+			{
+				Services =
+				{
+					EUROLabWorkflowPlannerService.BindService(
+					new EUROLabWorkflowPlannerServiceServerImpl(euroLabWorkflowPlannerService))
+				},
+				Ports =
+				{
+					new ServerPort(host, port, ServerCredentials.Insecure)
+				}
+			};
+		}
+		
+		#endregion
+		
+		#region Public Methods
+		
+		/// <summary>
+		/// tries to start the RPC-Server. Returns true if success
+		/// </summary>
+		/// <returns></returns>
+		public bool StartServer()
+		{
+			try
+			{
+				_server.Start();
+				return true;
+			}
+			catch (Exception exception)
+			{
+				return false;
+			}
+		}
+		
+		/// <summary>
+		/// Shuts down the server
+		/// </summary>
+		public void StopServer()
+		{
+			_server.ShutdownAsync();
+		}
+	}
+\end{lstlisting}
+
+\subsection{Clientseitige Klasse}
+\label{app:ClientseitigeKlasse}
+
+\lstset{style=sharpc}
+\begin{lstlisting}[caption={Clientseitige Klasse}]
+	public class RPCClient
+	{
+		#region Fields
+		
+		private readonly Channel _channel;
+		
+		private readonly EUROLabWorkflowPlannerService.EUROLabWorkflowPlannerServiceClient _client;
+		
+		#endregion
+		
+		#region Constructors
+		
+		/// <summary>
+		/// Creates the RPC-Client with the fewest necessary values
+		/// </summary>
+		/// <param name="host"></param>
+		/// <param name="port"></param>
+		public RPCClient(string host, int port)
+		{
+			if (host == null)
+			throw new NullReferenceException("Host");
+			if (port == 0)
+			throw new NullReferenceException("Port");
+			
+			Host = host;
+			Port = port;
+			
+			_channel = new Channel(host, port, ChannelCredentials.Insecure);
+			
+			_client = new EUROLabWorkflowPlannerService.EUROLabWorkflowPlannerServiceClient(_channel);
+		}
+		
+		#endregion
+		
+		#region Properties
+		
+		public string Host { get; }
+		
+		public int Port { get; }
+		
+		#endregion
+		
+		#region Public Methods
+		
+		/// <summary>
+		/// Requests the runs from the server and filters for the selected Dates. Returns the interface if success
+		/// </summary>
+		/// <param name="FromDate"></param>
+		/// <param name="ToDate"></param>
+		/// <returns></returns>
+		public IGetProcessingResponse Request(IGetProcessingRequest getProcessingRequest)
+		{
+			try
+			{
+				var request = new GetProcessingsRequest()
+				{
+					FromDate = DateTimeToClientTimestampConverter.ConvertDateTimeToTimestamp(getProcessingRequest.FromDate),
+					ToDate = DateTimeToClientTimestampConverter.ConvertDateTimeToTimestamp(getProcessingRequest.ToDate)
+				};
+				
+				var response = _client.GetProcessings(request);
+				
+				return new GetProcessingResponse(InterfaceToClientGrpcConverter.ResponseToServiceConverter(response));
+			}
+			catch
+			{
+				return null;
+			}
+		}
+		
+		/// <summary>
+		/// Stops the Client
+		/// </summary>
+		public void StopClient()
+		{
+			_channel.ShutdownAsync();
+		}
+	}
+\end{lstlisting}
+
+\subsection{Schnittstelle}
+\label{app:Schnittstelle}
+
+\lstset{style=sharpc}
+\begin{lstlisting}[caption={Schnittstelle}]
+	public interface IEUROLabWorkflowPlannerService
+	{
+		IGetProcessingResponse GetProcessings(IGetProcessingRequest request);
+	}
+\end{lstlisting}
+
+\clearpage

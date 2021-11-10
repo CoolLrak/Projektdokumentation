@@ -12,21 +12,21 @@ In meiner Freizeit bin ich als ehrenamtlicher Schwimmtrainer tätig, segle und f
 
 \subsection{Vorstellung des Ausbildungsbetriebs} 
 \label{sec:Ausbildungsbetrieb}
-Mein Ausbildungsbetrieb ist die {\betriebName} mit Sitz in {\betriebOrt} und Zweigstellen in Groß Grönau, Selmsdorf und Dassow im Norden und Rennersdorf, Pegnitz und Bernstadt im Süden Deutschlands. Durch den Verkauf der Firma im Dezember 2017 befindet sich {\betriebNameKzf} in Besitz von {\mutterBetriebName}, einem US-amerikanischen Technologieunternehmen im Bereich der Chemie- und Medizintechnik.
+Mein Ausbildungsbetrieb ist die {\betriebName} mit Hauptsitz in {\betriebOrt} und Zweigstellen in Groß Grönau, Selmsdorf und Dassow im Norden und Rennersdorf, Pegnitz und Bernstadt im Süden Deutschlands. Durch den Verkauf der Firma im Dezember 2017 befindet sich {\betriebNameKzf} in Besitz von {\mutterBetriebName}, einem US-amerikanischen Technologieunternehmen im Bereich der Chemie- und Medizintechnik.
 
-{\betriebNameKzf} ist ein Hersteller für diverse medizinische Diagnostika von Autoimmun-, Infektionskrankheiten und Allergien, aber auch im Bereich der Automatisierung. Die Ausbildung findet in Dassow in der Forschung und Entwicklung von Software zur Steuerung von Diagnostikautomaten statt.
+{\betriebNameKzf} ist ein Hersteller für diverse medizinische Diagnostika von Autoimmun-, Infektionskrankheiten und Allergien, aber auch im Bereich der Automatisierung. Meine Ausbildung findet in Dassow in der Forschung und Entwicklung von Software zur Steuerung von Diagnostikautomaten statt.
 
 Insgesamt hat {\betriebNameKzf} mehr als 3.200 Mitarbeiter in 17 Ländern.
 
 \subsection{Projektauslöser} 
 \label{sec:Projektauslöser}
-Neben der Herstellung von medizinischen Diagnostika zur manuellen Durchführung, werden Geräte zur automatisierten Durchführung dessen hergestellt und vertrieben. Diese Diagnostikautomaten arbeiten mit diversen unterschiedlichen Betriebsmitteln (z.B. Reinigungsflüssigkeit zur Reinigung der Schläuche, Probenträger, etc.), welche ebenfalls von {\betriebNameKzf} an die Kunden verkauft werden.
+Neben der Herstellung von medizinischen Diagnostika zur manuellen Durchführung werden Geräte zur automatisierten Durchführung dessen hergestellt und vertrieben. Diese Diagnostikautomaten arbeiten mit diversen unterschiedlichen Betriebsmitteln (z.B. Reinigungsflüssigkeit zur Reinigung der Schläuche, Probenträger etc.), welche ebenfalls von {\betriebNameKzf} an die Kunden verkauft werden.
 
-Anhand der verbrauchten Betriebsmittel der Geräte, wird die Menge, der in Zukunft benötigten, berechnet und die Preise dementsprechend auf den Kunden angepasst. Außerdem wird je nach Verbrauch der Labore die Produktions- und Lagermenge optimiert.
+Anhand der verbrauchten Betriebsmittel der Geräte wird die Menge, der in Zukunft benötigten, berechnet und die Preise dementsprechend auf den Kunden angepasst. Außerdem wird je nach Verbrauch der Labore die Produktions- und Lagermenge optimiert.
 
-Derzeit werden jedoch keine Daten der Verbräuche von den Gerätesoftwares erhoben, was eine manuelle Berechnung derer zur Folge hat. Diese Berechnung wird durch Außendienstmitarbeiter durchgeführt, welche die Labore besuchen und die durchgeführten Testmengen als Maßstab nutzen. Je nach Art des Gerätebetriebs ist der Verbrauch jedoch unterschiedlich: Werden z.B. 500 Tests am Stück durchgeführt, ist das Verhalten des Geräts ein Anderes, als wenn über eine Zeit von zwei Wochen 500 Tests durchgeführt werden. Somit ist bei der Berechnung eine gewisse Ungenauigkeit vorhanden, die in Zusammenhang mit einer großen Anzahl an Kunden Differenzen zwischen berechneten und reellen Verbräuchen verursacht. 
+Derzeit werden jedoch keine Daten der Verbräuche von den Gerätesoftwares erhoben, was eine manuelle Berechnung derer zur Folge hat. Diese Berechnung wird durch Außendienstmitarbeiter durchgeführt, welche die Labore besuchen und die durchgeführten Testmengen als Maßstab nutzen. Je nach Art des Gerätebetriebs ist der Verbrauch jedoch unterschiedlich: Werden z.B. 500 Tests am Stück durchgeführt, ist das Verhalten des Geräts ein Anderes, als wenn über eine Zeit von zwei Wochen 500 Tests durchgeführt werden. Somit ist bei der Berechnung eine gewisse Ungenauigkeit vorhanden, die in Zusammenhang mit einer großen Anzahl an Kunden ebenfalls große Differenzen zwischen berechneten und reellen Verbräuchen verursacht. 
 
-Durch eine automatisierte und genauere Berechnung mithilfe von protokollierten Ressourcenverbräuchen könnten Punkte wie Preisgestaltung, Produktionsmenge oder Lagerhaltung weiter optimiert werden und somit Geld einsparen bzw. Gewinn maximieren.
+Durch eine automatisierte und genauere Berechnung mithilfe von protokollierten Ressourcenverbräuchen könnten Punkte wie Preisgestaltung, Produktionsmenge oder Lagerhaltung weiter optimiert und somit Geld eingespart bzw. Gewinn maximiert werden.
 
 \subsection{Projektumfeld}
 \label{sec:Projektumfeld}
@@ -34,13 +34,15 @@ Das Projektumfeld ist der {\betriebNameKzf} Standort in Dassow. Dort befindet si
 
 Bei diesem Projekt handelt es sich um eine Software, die ausschließlich intern eingesetzt werden soll.
 
+Der Entwicklungsstandard für die diversen Softwares zur Steuerung der Diagnostikgeräte ist die Programmiersprache C\# in Verbindung mit dem .NET Framework.
+
 \subsection{Projektziel}
 \label{sec:Projektziel}
 Ziel des Projekts ist es eine Schnittstelle zu definieren, die unabhängig von Diagnostikgerät und der entsprechenden Software implementiert werden kann. Durch diese Schnittstelle wird definiert, in welcher Form die Verbrauchsdaten abgefragt werden.
 
 Anhand dessen wird eine Software geschrieben, die die Ressourcenverbräuche verarbeitet, eine Gesamtberechnung durchführt und den Export einer \glqq .xlsx\grqq \xspace ermöglicht, um die nachstehende Kalkulation mittels Microsoft Excel zu gewährleisten.
 
-Die Planung eines solchen Projekts existiert bereits mehrere Jahre und wurde von der Geschäftsführung in Auftrag gegeben. Das Ziel dessen ist es Daten über die Nutzung der {\betriebNameKzf} Diagnostikgeräte zur erheben, welche zur Analyse von weiteren Optimierungmöglichkeiten dienen.
+Die Planung eines solchen Projekts existiert bereits mehrere Jahre und wurde von der Geschäftsführung in Auftrag gegeben. Ziel ist es Daten über die Nutzung der {\betriebNameKzf} Diagnostikgeräte zur erheben, welche zur Analyse von weiteren Optimierungmöglichkeiten dienen.
 
 \subsection{Projektschnittstellen}
 \label{sec:Projektschnittstellen}
