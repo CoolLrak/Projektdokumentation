@@ -4,9 +4,9 @@
 
 \subsection{Eingesetzte Technologien}
 \label{sec:EingesetzteTechnologien}
-Für die Entwicklung der Schnittstelle mit der die Verbräuche der Betriebsmittel der Diagnostikgeräte abgefragt werden, wird {\acs{gRPC}} verwendet. {\acs{gRPC}} ist ein Open-Source {\acs{RPC}} System, welches von Google entwickelt wird.
+Für die Entwicklung der Schnittstelle, mit der die Verbräuche der Betriebsmittel der Diagnostikgeräte abgefragt werden, wird {\acs{gRPC}} verwendet. {\acs{gRPC}} ist ein Open-Source {\acs{RPC}} System, welches von Google entwickelt wird.
 
-{\ac{RPC}} ist eine Technologie, die es möglich macht, Prozeduren auf anderen Geräte auszuführen, als auf dem, wo es aufgerufen wird (meistens innerhalb eines Netzwerks). Durch diese Auslagerung kann Datenverarbeitung auf andere Geräte ausgelagert werden, ohne dass ein Unterschied in der Entwicklung entsteht. Daraus ergibt sich eine Form der Client-Server-Architektur, bei der der aufrufende Part den Client und der ausführende Part den Server darstellt. Die Kommunikation basiert auf dem \glqq request-response\grqq \space Protokoll, welche synchron via http abläuft. Schickt der Client eine Abfrage, ist er während der Bearbeitung durch den Server blockiert\footnote{Vgl. Wikipedia: \url{https://en.wikipedia.org/wiki/Remote_procedure_call} (Stand 08.11.2021 10:15 Uhr)}.
+{\acs{RPC}} ist eine Technologie, die es möglich macht, Prozeduren auf anderen Geräte auszuführen, als auf dem, wo es aufgerufen wird (meistens innerhalb eines Netzwerks). Durch diese Auslagerung kann Datenverarbeitung auf andere Geräte ausgelagert werden, ohne dass ein Unterschied in der Entwicklung entsteht. Daraus ergibt sich eine Form der Client-Server-Architektur, bei der der aufrufende Part den Client und der ausführende Part den Server darstellt. Die Kommunikation basiert auf dem \glqq request-response\grqq \space Protokoll, welche synchron via http abläuft. Schickt der Client eine Abfrage, ist er während der Bearbeitung durch den Server blockiert\footnote{Vgl. Wikipedia: \url{https://en.wikipedia.org/wiki/Remote_procedure_call} (Stand 08.11.2021 10:15 Uhr)}.
 
 Die Wahl der Technologie fiel auf {\acs{gRPC}}, da dieses bereits in der Firma genutzt wurde und somit eine Vorgabe darstellte.
 
@@ -14,6 +14,14 @@ Die Anwendung wird mit C\# entwickelt. Dafür wird die Version 4.8 des .NET Fram
 
 Zum exportieren von \glqq .xlsx\grqq \space Dateien wird das {\acs{NuGet}}-Paket \glqq Microsoft.Office.Interop.Excel\grqq \space verwendet. Die Dokumentation befindet sich auf der Microsoft Docs Webseite\footnote{Microsoft.Office.Interop.Excel: \url{https://docs.microsoft.com/en-us/dotnet/api/microsoft.office.interop.excel?view=excel-pia}} des Frameworks.
 
-Für die graphische Benutzeroberfläche wird die {\betriebNameKzf} interne {\acs{Material Design}} Bibliothek verwendet.
+Als Hilfe zur Implementierung wird {\acs{Prism}} eingesetzt. Durch die Nutzung ergibt sich eine einfach Einbindung von {\acs{IoC}}. Mithilfe von {\acs{IoC}} können Konstruktoren automatisch initialisiert werden, woraus sich eine deutlich erhöhte Übersichtlichkeit des Programmcodes ergibt.
 
-Zur Strukturierung der Software-Architektur wird {\acs{Prism}} eingesetzt. Durch die Nutzung ergibt sich eine einfach Verwendung von  {\acs{IoC}}, die die Struktur der Software deutlich übersichtlicher gestalten lässt.
+\subsection{Entwicklungsumgebung}
+\label{sec:Entwicklungsumgebung}
+Zur Entwicklung wird Visual Studio Professional 2019 verwendet. Die IDE wurde durch die ReSharper Extension von Jetbrains erweitert. ReSharper fügt Tools für Refactoring und das Erkennen von Code Smells hinzu. So wird gewährleistet, dass sauberer und qualitativ hochwertiger Quellcode produziert wird.
+
+\subsection{Erstellung einer Benutzeroberfläche}
+\label{sec:ErstellungEinerBenutzeroberfläche}
+Die Oberfläche wurde mit {\acs{WPF}} entworfen. Als Architekturmodell wird ein Hybrid aus zwei {\acs{MVVM}} Architekturen angewendet. Die einzelnen Bestandteile (im Folgenden \glqq Views\grqq \space genannt) verwenden je eine {\acs{MVVM}} Architektur, womit ist die Benutzeroberfläche von der Logik abgekoppelt ist. Die Werte werden mittels Data Binding in die Screens integriert. Um die einzelnen Views in der Oberfläche zu verwenden, wird über ein einzelnes ViewModel kontrolliert, welche View gerade zu sehen ist.
+
+Für die Erstellung eines einheitlichen Designs wird die {\betriebNameKzf} interne Design Bibliothek genutzt, die nach der Material Design Sprache von Google geschrieben ist. Implementiert ist diese ebenfalls in {\acs{WPF}} und lässt sich durch Auslagerung in sogenannte \glqq Resource Dictionaries\grqq \space einbinden.
