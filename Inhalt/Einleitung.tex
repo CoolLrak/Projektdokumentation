@@ -46,6 +46,6 @@ Die Planung eines solchen Projekts existiert bereits mehrere Jahre und wurde von
 
 \subsection{Projektschnittstellen}
 \label{sec:Projektschnittstellen}
-Das Projekt stellt eine {\acs{gRPC}} Schnittstelle bereit. Diese wird mithilfe einer \glqq .proto\grqq \xspace Datei definiert. Die Schnittstelle wird auf Seite des Clients implementiert und auf Seite des Servers offen gelassen, sodass die unterschiedlichen Softwares der Diagnostikgeräte diese implementieren können und die Freiheit haben, je nach Architektur und Speicherung, die Daten bereitzustellen.
+Das Projekt stellt eine {\acs{gRPC}} Schnittstelle bereit. Diese wird mithilfe einer \glqq .proto\grqq \xspace (s. Listing~\ref{app:DefinitionSchnittstelle}) Datei definiert. Die Schnittstelle wird auf Seite des Clients implementiert und auf Seite des Servers zur Einbindung bereit gestellt, sodass die unterschiedlichen Softwares der Diagnostikgeräte diese implementieren können und die Freiheit haben, je nach Architektur und Speicherung, die Daten bereitzustellen.
 
 Des Weiteren wird der Export einer \glqq .xlsx\grqq \xspace Datei angeboten.

@@ -10,13 +10,13 @@ Tabelle~\ref{tab:Zeitplanung} zeigt die vorgesehenen Phase des Projektes.
 
 \subsection{Ist-Analyse} 
 \label{sec:IstAnalyse}
-Zur Zeit besuchen Außendienstmitarbeiter Labore, die Diagnostikgeräte von {\betriebNameKzf} verwenden, um die Ressourcenverbräuche zu ermitteln. Um weiterhin genügend Betriebsmittel vorzuhalten, werden retrospektiv die Verbräuche entsprechend zur Zeit berechnet und die weitere Versorgung sicher gestellt. Diese Berechnung geschieht anhand der Anzahl durchschnittlich durchgeführter Tests und Aussagen der Labormitarbeiter, falls absehbar ist, dass zukünftig vom Durchschnitt abgewichen wird.
+Zur Zeit besuchen Außendienstmitarbeiter Labore, die Diagnostikgeräte von {\betriebNameKzf} verwenden, um die Ressourcenverbräuche zu ermitteln. Um weiterhin genügend Betriebsmittel vorzuhalten werden retrospektiv die Verbräuche entsprechend zur Zeit berechnet und die weitere Versorgung sicher gestellt. Diese Berechnung geschieht anhand der Anzahl durchschnittlich durchgeführter Tests und Aussagen der Labormitarbeiter, falls absehbar ist, dass zukünftig vom Durchschnitt abgewichen wird.
 
 Diese Arbeitsweise erfordert gut geschulte Mitarbeiter.
 
 \subsection{Soll-Konzept}
 \label{sec:SollKonzept}
-Durch die neu entwickelte Software soll es den Außendienstmitarbeitern möglich sein die Ressourcenverbräuche genauer zu berechnen, den zukünftigen Bedarf präziser zu planen, somit die Preisgestaltung anzupassen und die Produktion und Lagerhaltung zu optimieren. Der Mitarbeiter kann mit einem Windows PC sich in das lokale Netzwerk des Labors einwählen und über die gegebene Schnittstelle eine Verbindung mit den Computern der Diagnostikautomaten aufbauen. Mithilfe dieser Verbindung werden die Verbräuche der Betriebsmittel abgefragt.
+Durch die neu entwickelte Software soll es den Außendienstmitarbeitern möglich sein, die Ressourcenverbräuche genauer zu berechnen, den zukünftigen Bedarf präziser zu planen, somit die Preisgestaltung anzupassen und die Produktion und Lagerhaltung zu optimieren. Der Mitarbeiter kann sich mit einem Windows PC in das lokale Netzwerk des Labors einwählen und über die gegebene Schnittstelle eine Verbindung mit den Computern der Diagnostikautomaten aufbauen. Mithilfe dieser Verbindung werden die Verbräuche der Betriebsmittel abgefragt.
 
 Das Programm soll für die Möglichkeit auf internationale Anwendung in Englisch geschrieben werden und auf einem Windows 7/8/10/11 PC laufen. Die Software wird generisch entwickelt, sodass der zukünftige Ausbau mithilfe anderer Technologien möglich ist. Sowohl die Seite des Diagnostikgeräts, als auch die des Außendienstmitarbeiters werden in C\# entwickelt.
 
@@ -46,6 +46,6 @@ Durch die hohe Anzahl an genutzten Diagnostikgeräten von {\betriebNameKzf} in L
 
 \subsection{Qualitätsanforderungen}
 \label{sec:Qualitätsanforderungen}
-Da die Anwendung unter Anderem die Kosten für Mitarbeiterschulungen senken soll, muss sie einfach und intuitiv zu bedienen sein. Bei geringfügigen Fehlern soll die Software ausfallsicher sein und durch die Abfrage von unbestimmten Größen an Datenmengen soll die Kommunikation performant und schlank sein.
+Da die Anwendung unter anderem die Kosten für Mitarbeiterschulungen senken soll, muss sie einfach und intuitiv zu bedienen sein. Bei geringfügigen Fehlern soll die Software ausfallsicher sein und durch die Abfrage von unbestimmten Größen an Datenmengen soll die Kommunikation performant und schlank sein.
 
 Die Bereitstellung einer frei implementierbaren Schnittstelle verlangt eine gute Dokumentation und Kommentierung des Quellcodes, sodass Entwickler diese Schnittstelle einfach nutzen können. Da die Softwares zur Steuerung der Diagnostikgeräte für Windows entwickelt werden, ist es nötig die Schnittstelle ebenfalls für Windows zu entwickeln und daraus resultierend auch die Software zur Abfrage der Betriebsmittelverbräuche.

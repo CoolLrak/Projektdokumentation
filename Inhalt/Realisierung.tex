@@ -26,7 +26,12 @@ Die Oberfläche wurde mit {\acs{WPF}} entworfen. Als Architekturmodell wird ein 
 
 Für die Erstellung eines einheitlichen Designs wird die {\betriebNameKzf} interne Design Bibliothek genutzt, die nach der Material Design Sprache von Google geschrieben ist. Implementiert ist diese ebenfalls in {\acs{WPF}} und lässt sich durch Auslagerung in sogenannte \glqq Resource Dictionaries\grqq \space einbinden.
 
-Einbinden eines Screenshots
+\begin{figure}[htb]
+	\centering
+	\includegraphics[scale=0.5]{Bilder/RunsAnsicht.png}
+	\caption{Hauptansicht der abgefragten Daten}
+	\label{fig:Runs}
+\end{figure} 
 
 \subsection{Implementierung der Geschäftslogik}
 \label{sec:ImplementierungDerGeschäftslogik}
@@ -35,3 +40,12 @@ Die Implementierung der Schnittstelle via {\acs{gRPC}} wurde vom Betrieb vorgege
 Zunächst war das Ziel eine Schnittstelle zu entwickeln, die einfach von anderen Gerätesoftware-Projekten implementiert werden kann. Diese Schnittstelle wird entwickelt und in ein {\acs{NuGet}}-Paket ausgelagert. Durch die Nutzung eines Firmeninternen {\acs{GitLab}}-Servers wird dieses Paket für die firmeninterne Nutzung freigegeben.
 
 Zur Implementierung dieser Schnittstelle muss die Klasse \glqq RPCServer\grqq \space (s. Listing~\ref{app:ServerseitigeKlasse}) initialisiert werden. In den Konstruktor wird dazu das Interface \glqq IEUROLabWorkflowPlannerService\grqq \space (s. Listing~\ref{app:Schnittstelle}) rein gereicht. Über eine eigene Implementierung des Interfaces können die Daten entsprechend der Software des Diagnostikgeräts erbracht werden.
+
+Bei Abfrage der Daten werden Verbräuche mit Verbrauchsnamen gekennzeichnet. Anhand dieser Namen werden gleichnamige zusammengerechnet und zur besseren Übersicht gegliedert (s. Abbildung~\ref{fig:Consumptions}). Eine qualitative Bewertung der Daten findet nicht statt, die Daten werden unabhängig von Einheiten verarbeitet.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[scale=0.5]{Bilder/VerbrauchAnsicht.png}
+	\caption{Ansicht der zusammengefassten Betriebsmittelverbräuche}
+	\label{fig:Consumptions}
+\end{figure}
