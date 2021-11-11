@@ -6,7 +6,7 @@
 \label{sec:EingesetzteTechnologien}
 Für die Entwicklung der Schnittstelle, mit der die Verbräuche der Betriebsmittel der Diagnostikgeräte abgefragt werden, wird {\acs{gRPC}} verwendet. {\acs{gRPC}} ist ein Open-Source {\acs{RPC}} System, welches von Google entwickelt wird.
 
-{\acs{RPC}} ist eine Technologie, die es möglich macht, Prozeduren auf anderen Geräte auszuführen, als auf dem, wo es aufgerufen wird (meistens innerhalb eines Netzwerks). Durch diese Auslagerung kann Datenverarbeitung auf andere Geräte ausgelagert werden, ohne dass ein Unterschied in der Entwicklung entsteht. Daraus ergibt sich eine Form der Client-Server-Architektur, bei der der aufrufende Part den Client und der ausführende Part den Server darstellt. Die Kommunikation basiert auf dem \glqq request-response\grqq \space Protokoll, welche synchron via http abläuft. Schickt der Client eine Abfrage, ist er während der Bearbeitung durch den Server blockiert\footnote{Wikipedia: \url{https://en.wikipedia.org/wiki/Remote_procedure_call} (Stand 08.11.2021 10:15 Uhr)}.
+{\acs{RPC}} ist eine Technologie, die es möglich macht, Prozeduren auf anderen Geräte auszuführen als auf dem, wo es aufgerufen wird (meistens innerhalb eines Netzwerks). Durch diese Auslagerung kann Datenverarbeitung auf andere Geräte ausgelagert werden, ohne dass ein Unterschied in der Entwicklung entsteht. Daraus ergibt sich eine Form der Client-Server-Architektur, bei der der aufrufende Part den Client und der ausführende Part den Server darstellt. Die Kommunikation basiert auf dem \glqq request-response\grqq \space Protokoll, welche synchron via http abläuft. Schickt der Client eine Abfrage, ist er während der Bearbeitung durch den Server blockiert\footnote{Wikipedia: \url{https://en.wikipedia.org/wiki/Remote_procedure_call} (Stand 08.11.2021 10:15 Uhr)}.
 
 Die Wahl der Technologie fiel auf {\acs{gRPC}}, da dieses bereits in der Firma genutzt wurde und somit eine Vorgabe darstellte.
 
@@ -37,7 +37,7 @@ Für die Erstellung eines einheitlichen Designs wird die {\betriebNameKzf} inter
 \label{sec:ImplementierungDerGeschäftslogik}
 Die Implementierung der Schnittstelle via {\acs{gRPC}} wurde vom Betrieb vorgegeben, da die Technologie an anderen Stelle bereits verwendet wurde und somit ein gewisses Grundwissen vorhanden war.
 
-Zunächst war das Ziel eine Schnittstelle zu entwickeln, die einfach von anderen Gerätesoftware-Projekten implementiert werden kann. Diese Schnittstelle wird entwickelt und in ein {\acs{NuGet}}-Paket ausgelagert. Durch die Nutzung eines Firmeninternen {\acs{GitLab}}-Servers wird dieses Paket für die firmeninterne Nutzung freigegeben.
+Zunächst war das Ziel eine Schnittstelle zu entwickeln, die einfach von anderen Gerätesoftware-Projekten implementiert werden kann. Diese Schnittstelle wird entwickelt und in ein {\acs{NuGet}}-Paket ausgelagert. Durch die Nutzung eines firmeninternen {\acs{GitLab}}-Servers wird dieses Paket für die firmeninterne Nutzung freigegeben.
 
 Zur Implementierung dieser Schnittstelle muss die Klasse \glqq RPCServer\grqq \space (s. Listing~\ref{app:ServerseitigeKlasse}) initialisiert werden. In den Konstruktor wird dazu das Interface \glqq IEUROLabWorkflowPlannerService\grqq \space (s. Listing~\ref{app:Schnittstelle}) rein gereicht. Über eine eigene Implementierung des Interfaces können die Daten entsprechend der Software des Diagnostikgeräts erbracht werden.
 

@@ -4,11 +4,11 @@
 
 \subsection{Soll-/Ist-Vergleich}
 \label{sec:SollIstVergleich}
-Ziel des Projektes war die Erstellung und Implementierung einer Schnittstelle, die unabhängig von Diagnostikgerät Daten über Betriebsmittelverbräuche abfragen, zusammenrechnen und exportieren kann. Es wurden zwei Implementierungen der Serverseite erstellt und getestet. Es ist möglich beide Implementierungen zu nutzen. Somit wurden die Anforderungen nach einer unabhängigen Schnittstelle und einer Software, die darauf zugreift, umgesetzt und die erwarteten Funktionen bereit gestellt.
+Ziel des Projektes war die Erstellung und Implementierung einer Schnittstelle, die unabhängig von Diagnostikgerät Daten über Betriebsmittelverbräuche abfragen, zusammenrechnen und exportieren kann. Es wurden zwei Implementierungen der Serverseite erstellt und getestet. Es ist möglich, beide Implementierungen zu nutzen. Somit wurden die Anforderungen nach einer unabhängigen Schnittstelle und einer Software, die darauf zugreift, umgesetzt und die erwarteten Funktionen bereit gestellt.
 
 \subsection{Erweiterungsmöglichkeiten}
 \label{sec:Erweiterungsmoeglichkeiten}
-Durch die generische Entwicklung ist es einfach möglich anstatt einer {\acs{gRPC}} Schnittstelle eine andere Technologie einzubinden und somit sich z.B. direkt mit einer Datenbank zu verbinden oder mithilfe eines anderen Protokolls zu kommunizieren.
+Durch die generische Entwicklung ist es einfach möglich, anstatt einer {\acs{gRPC}} Schnittstelle, eine andere Technologie einzubinden und somit sich z.B. direkt mit einer Datenbank zu verbinden oder mithilfe eines anderen Protokolls zu kommunizieren.
 
 Anhand der frei implementierbaren Schnittstelle können weitere Projekte zur Entwicklung einer Software eines Diagnostikgeräts diese einbinden und unabhängig vom Verhalten des Geräts Daten in die vorgegebene Form bringen und zur Abfrage bereit stellen. In Zukunft könnten auf diese Weise die Abfragen der Betriebsmittelverbräuche standardisiert werden.
 
@@ -16,13 +16,13 @@ Anhand der frei implementierbaren Schnittstelle können weitere Projekte zur Ent
 \label{sec:ZukunftUndGrenzen}
 Im Verlauf der Bearbeitung sind immer wieder Schwierigkeiten aufgetreten, die Defizite an dieser Technologie aufgewiesen haben. Beim Senden von sehr großen Datenmengen z.B. wurde die Performance der Kommunikation meist schlecht und teilweise wurden Antworten des Servers gesendet, jedoch nicht vom Client empfangen.
 
-Gleichzeitig ist {\acs{gRPC}} im Gegensatz zu anderen ähnlichen Möglichkeiten der Netzwerk-Kommunikation nicht sehr weit verbreitet, was es schwieriger macht Entwickler zu finden, die ein gewisses Knowhow in diesem Bereich besitzen. Des weiteren ist die Kommunikation nicht standardisiert, was ebenfalls die Erweiterung und Implementierung schwieriger gestaltet. Durch die komplexe Nutzung von {\acs{HTTP2}} ist es nicht möglich {\acs{gRPC}} in den Browser zu integrieren.
+Gleichzeitig ist {\acs{gRPC}} im Gegensatz zu anderen ähnlichen Möglichkeiten der Netzwerk-Kommunikation nicht sehr weit verbreitet, was es schwieriger macht Entwickler zu finden, die ein gewisses Know-how in diesem Bereich besitzen. Des weiteren ist die Kommunikation nicht standardisiert, was ebenfalls die Erweiterung und Implementierung schwieriger gestaltet. Durch die komplexe Nutzung von {\acs{HTTP2}} ist es nicht möglich {\acs{gRPC}} in den Browser zu integrieren.
 
 Dennoch ist {\acs{gRPC}} eine gute Möglichkeit innerhalb eines lokalen Netzwerks zu kommunizieren und Daten geringer Größe zu verschicken.
 
 \subsection{Probleme}
 \label{sec:Probleme}
-Das schwerwiegendste Problem, das während der Implementierung aufgetreten ist, war dass die automatische Generation der {\acs{gRPC}} Klassen in Verbindung mit dem .NET Framework nicht funktioniert hat. Da zur Implementierung von {\acs{gRPC}} mit dem .NET Framework unter C\# kaum etwas an Dokumentation zu finden war, hat die Lösung etwas Zeit in Anspruch genommen. Die Generation in Verbindung mit C\# und .NET Core hat jedoch ohne Probleme funktioniert und somit musste nur an wenigen Stellen der Quellcode angepasst werden, sodass die Funktion auch mit dem .NET Framework gewährleistet war.
+Das schwerwiegendste Problem, das während der Implementierung aufgetreten ist, war, dass die automatische Generation der {\acs{gRPC}} Klassen in Verbindung mit dem .NET Framework nicht funktioniert hat. Da zur Implementierung von {\acs{gRPC}} mit dem .NET Framework unter C\# kaum etwas an Dokumentation zu finden war, hat die Lösung etwas Zeit in Anspruch genommen. Die Generation in Verbindung mit C\# und .NET Core hat jedoch ohne Probleme funktioniert und somit musste nur an wenigen Stellen der Quellcode angepasst werden, sodass die Funktion auch mit dem .NET Framework gewährleistet war.
 
 \subsection{Fazit}
 \label{sec:Fazit}
@@ -30,4 +30,4 @@ Bei {\acs{gRPC}} handelt es sich um eine spannende Technologie, die in gewissen 
 
 Speziell in diesem Fall wäre meiner Meinung nach der Einsatz einer alternativen Technologie von Vorteil gewesen, die mit größeren Datenmengen performanter arbeitet, weiter verbreitet und standardisiert ist, um den Fortbestand sicher gewährleisten zu können.
 
-Durch die erfolgreiche Implementierung und Testung der Anforderungen wird das Projekt als Erfolg eingestuft.
+Durch die erfolgreiche Implementierung und Testung der Anforderungen wird das Projekt trotzdem als Erfolg eingestuft.
