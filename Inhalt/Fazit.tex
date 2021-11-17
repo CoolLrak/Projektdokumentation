@@ -4,7 +4,7 @@
 
 \subsection{Soll-/Ist-Vergleich}
 \label{sec:SollIstVergleich}
-Ziel des Projektes war die Erstellung und Implementierung einer Schnittstelle, die unabhängig von Diagnostikgerät Daten über Betriebsmittelverbräuche abfragen, zusammenrechnen und exportieren kann. Es wurden zwei Implementierungen der Serverseite erstellt und getestet. Es ist möglich, beide Implementierungen zu nutzen. Somit wurden die Anforderungen nach einer unabhängigen Schnittstelle und einer Software, die darauf zugreift, umgesetzt und die erwarteten Funktionen bereit gestellt.
+Ziel des Projektes war die Erstellung und Implementierung einer Schnittstelle, die unabhängig vom Diagnostikgerät Daten über Betriebsmittelverbräuche abfragen, zusammenrechnen und exportieren kann. Es wurden zwei Implementierungen der Serverseite erstellt und getestet. Es ist möglich, beide Implementierungen zu nutzen. Somit wurden die Anforderungen nach einer unabhängigen Schnittstelle und einer Software, die darauf zugreift, umgesetzt und die erwarteten Funktionen bereit gestellt.
 
 \subsection{Erweiterungsmöglichkeiten}
 \label{sec:Erweiterungsmoeglichkeiten}
@@ -14,20 +14,26 @@ Anhand der frei implementierbaren Schnittstelle können weitere Projekte zur Ent
 
 \subsection{Zukunft und Grenzen der Technologie}
 \label{sec:ZukunftUndGrenzen}
-Im Verlauf der Bearbeitung sind immer wieder Schwierigkeiten aufgetreten, die Defizite an dieser Technologie aufgewiesen haben. Beim Senden von sehr großen Datenmengen z.B. wurde die Performance der Kommunikation meist schlecht und teilweise wurden Antworten des Servers gesendet, jedoch nicht vom Client empfangen.
+Im Verlauf der Bearbeitung sind immer wieder Schwierigkeiten aufgetreten, die Defizite an dieser Technologie aufgewiesen haben. Beim Senden von großen Datenmengen (ab ca. 1.000 Datensätzen) z.B. wurde die Performance der Kommunikation meist schlecht und teilweise wurden Antworten des Servers gesendet, jedoch nicht vom Client empfangen.
 
 Gleichzeitig ist {\acs{gRPC}} im Gegensatz zu anderen ähnlichen Möglichkeiten der Netzwerk-Kommunikation nicht sehr weit verbreitet, was es schwieriger macht Entwickler zu finden, die ein gewisses Know-how in diesem Bereich besitzen. Des weiteren ist die Kommunikation nicht standardisiert, was ebenfalls die Erweiterung und Implementierung schwieriger gestaltet. Durch die komplexe Nutzung von {\acs{HTTP2}} ist es nicht möglich {\acs{gRPC}} in den Browser zu integrieren.
 
-Dennoch ist {\acs{gRPC}} eine gute Möglichkeit innerhalb eines lokalen Netzwerks zu kommunizieren und Daten geringer Größe zu verschicken.
+Dennoch ist {\acs{gRPC}} eine gute Möglichkeit innerhalb eines lokalen Netzwerks zu kommunizieren und Daten geringer Größe zu verschicken. Dort liegt aber auch seine Grenze, es lassen sich die Daten via {\acs{gRPC}} nur im lokalen Netz übertragen. Sollen die Daten sicher über weite Distanzen übertragen werden, so lässt sich dies nur via {\acs{VPN}} realisieren.
 
 \subsection{Probleme}
 \label{sec:Probleme}
 Das schwerwiegendste Problem, das während der Implementierung aufgetreten ist, war, dass die automatische Generation der {\acs{gRPC}} Klassen in Verbindung mit dem .NET Framework nicht funktioniert hat. Da zur Implementierung von {\acs{gRPC}} mit dem .NET Framework unter C\# kaum etwas an Dokumentation zu finden war, hat die Lösung etwas Zeit in Anspruch genommen. Die Generation in Verbindung mit C\# und .NET Core hat jedoch ohne Probleme funktioniert und somit musste nur an wenigen Stellen der Quellcode angepasst werden, sodass die Funktion auch mit dem .NET Framework gewährleistet war.
 
+Die Verschiebungen, die sich im zeitlichen Bereich durch diese Probleme ergeben haben, haben die Zeitplanung nicht weiter beeinflusst. So hat sich die Realisierung um eine Stunde verzögert, was wiederum bei der Dokumentation eingespart wurde.
+
 \subsection{Fazit}
 \label{sec:Fazit}
 Bei {\acs{gRPC}} handelt es sich um eine spannende Technologie, die in gewissen Einsatzgebieten sehr gut Anwendung finden kann.
 
-Speziell in diesem Fall wäre meiner Meinung nach der Einsatz einer alternativen Technologie von Vorteil gewesen, die mit größeren Datenmengen performanter arbeitet, weiter verbreitet und standardisiert ist, um den Fortbestand sicher gewährleisten zu können.
+Speziell in diesem Fall wäre meiner Meinung nach der Einsatz einer alternativen Technologie von Vorteil gewesen, die mit größeren Datenmengen performanter arbeitet, weiter verbreitet und standardisiert ist, um den Fortbestand sicher gewährleisten zu können. Darüber hinaus besteht das weitere Problem darin, dass die Weitverkehrskommunikation über diese Schnittstelle nicht möglich ist. 
+
+So können Funktionen, wie sie etwa aus dem Automobilbereich bekannt sind, bei denen sich das Auto \glqq selbstständig\grqq \space zur Wartung anmeldet, nicht realisiert werden. 
+
+Soll dieses Verfahren zusätzliche Erträge generieren, muss bereits vor der Einführung eine Überarbeitung in diesem Sinne erfolgen.
 
 Durch die erfolgreiche Implementierung und Testung der Anforderungen wird das Projekt trotzdem als Erfolg eingestuft.

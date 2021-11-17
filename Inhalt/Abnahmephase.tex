@@ -6,10 +6,14 @@
 \label{sec:Testphase}
 Zur Testung der Anwendung wurden diverse Testfälle manuell durchgeführt. Da die Logik zum Großteil auf der Serverseite vorhanden ist, wurde auf Unit Tests verzichtet.
 
-Anhand von Systemtests wurde sicher gestellt, dass alle Anforderung, die an die Software gestellt wurden umgesetzt sind. Außerdem wurde mithilfe von Performance Tests getestet, wie standhaft die Software in Punkten wie Zuverlässigkeit, Stabilität und Verfügbarkeit ist. Auch beim Senden von größeren Datenmengen von mehreren Diagnostikgeräten gleichzeitig, wies die Anwendung eine gute Performance auf und stürzte nicht ab. Ebenfalls die Serverseite funktionierte zuverlässig und war mit unterschiedlichen  Implementierungen immer erreichbar und lieferte auf Abfrage Daten.
+Anhand von Systemtests wurde sicher gestellt, dass alle Anforderungen, die an die Software gestellt wurden umgesetzt sind. Außerdem wurde mithilfe von Performance Tests getestet, wie standhaft die Software in Punkten wie Zuverlässigkeit, Stabilität und Verfügbarkeit ist. Auch beim Senden von größeren Datenmengen (bis zu 1.000 Datensätze pro Gerät) von mehreren Diagnostikgeräten gleichzeitig, wies die Anwendung eine gute Performance auf und stürzte nicht ab. Ebenfalls die Serverseite funktionierte zuverlässig und war mit unterschiedlichen  Implementierungen immer erreichbar und lieferte auf Abfrage Daten.
 
 Die Testung möglicher auftretender Fehler verlief ebenfalls ohne Mängel. Auf Fälle wie nicht erreichbare Server, Abbruch der Kommunikation oder zu große Datenmengen reagierte die Software und lief zuverlässig weiter.
+
+Als Hilfe zum Testen wurde unabhängig vom Projekt ein Emulator geschrieben, der die {\acs{gRPC}} Schnittstelle implementiert und Testdaten senden kann.
 
 \subsection{Abnahme}
 \label{sec:Abnahme}
 Die Abnahme der Schnittstelle und der Software erfolgt durch den Auftraggeber des Projekts, dem Anforderungsmanager zur Prüfung der Erfüllung aller Anforderungen und einem Softwaretester, der die Software ebenfalls auf Zuverlässigkeit testet.
+
+Die Abnahme erfolgte auf dieser Basis am 12.11.2021.

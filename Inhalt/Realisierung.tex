@@ -2,6 +2,10 @@
 \section{Realisierung}
 \label{sec:Realisierung}
 
+\subsection{Testumfeld}
+\label{sec:Testumfeld}
+Da es sich bei der serverseitigen Entwicklung um bisher nicht veröffentlichte Diagnostikgeräte handelt, werden im Folgenden auf den Screenshots und Graphiken Verbräuche einer Kaffeemaschine zur Veranschaulichung genutzt.
+
 \subsection{Eingesetzte Technologien}
 \label{sec:EingesetzteTechnologien}
 Für die Entwicklung der Schnittstelle, mit der die Verbräuche der Betriebsmittel der Diagnostikgeräte abgefragt werden, wird {\acs{gRPC}} verwendet. {\acs{gRPC}} ist ein Open-Source {\acs{RPC}} System, welches von Google entwickelt wird.
@@ -22,9 +26,9 @@ Zur Entwicklung wird Visual Studio Professional 2019 verwendet. Die IDE wurde du
 
 \subsection{Erstellung einer Benutzeroberfläche}
 \label{sec:ErstellungEinerBenutzeroberfläche}
-Die Oberfläche wurde mit {\acs{WPF}} entworfen. Als Architekturmodell wird ein Hybrid aus zwei {\acs{MVVM}} Architekturen angewendet. Die einzelnen Bestandteile (im Folgenden \glqq Views\grqq \space genannt) verwenden je eine {\acs{MVVM}} Architektur, womit ist die Benutzeroberfläche von der Logik abgekoppelt ist. Die Werte werden mittels Data Binding in die Screens integriert. Um die einzelnen Views in der Oberfläche zu verwenden, wird über ein einzelnes ViewModel kontrolliert, welche View gerade zu sehen ist.
+Die Oberfläche des Clients wurde mit {\acs{WPF}} entworfen. Als Architekturmodell wird ein Hybrid aus zwei {\acs{MVVM}} Architekturen angewendet (s. Abbildung~\ref{fig:Hybrid}). Die einzelnen Bestandteile (im Folgenden \glqq Views\grqq \space genannt) verwenden je eine {\acs{MVVM}} Architektur, womit ist die Benutzeroberfläche von der Logik abgekoppelt ist. Die Werte werden mittels Data Binding in die Screens integriert. Um die einzelnen Views in der Oberfläche zu verwenden, wird über ein einzelnes ViewModel kontrolliert, welche View gerade zu sehen ist. Eine Benutzeroberfläche des Servers ist nicht vorgesehen.
 
-Für die Erstellung eines einheitlichen Designs wird die {\betriebNameKzf} interne Design Bibliothek genutzt, die nach der Material Design Sprache von Google geschrieben ist. Implementiert ist diese ebenfalls in {\acs{WPF}} und lässt sich durch Auslagerung in sogenannte \glqq Resource Dictionaries\grqq \space einbinden.
+Für die Erstellung eines einheitlichen Designs wird eine {\betriebNameKzf} interne Design Bibliothek genutzt, die nach der Material Design Sprache von Google umgesetzt ist. Implementiert ist diese ebenfalls in {\acs{WPF}} und lässt sich durch Auslagerung in sogenannte \glqq Resource Dictionaries\grqq \space einbinden.
 
 \begin{figure}[htb]
 	\centering
@@ -41,7 +45,7 @@ Zunächst war das Ziel eine Schnittstelle zu entwickeln, die einfach von anderen
 
 Zur Implementierung dieser Schnittstelle muss die Klasse \glqq RPCServer\grqq \space (s. Listing~\ref{app:ServerseitigeKlasse}) initialisiert werden. In den Konstruktor wird dazu das Interface \glqq IEUROLabWorkflowPlannerService\grqq \space (s. Listing~\ref{app:Schnittstelle}) rein gereicht. Über eine eigene Implementierung des Interfaces können die Daten entsprechend der Software des Diagnostikgeräts erbracht werden.
 
-Bei Abfrage der Daten werden Verbräuche mit Verbrauchsnamen gekennzeichnet. Anhand dieser Namen werden gleichnamige zusammengerechnet und zur besseren Übersicht gegliedert (s. Abbildung~\ref{fig:Consumptions}). Eine qualitative Bewertung der Daten findet nicht statt, die Daten werden unabhängig von Einheiten verarbeitet.
+Bei Abfrage der Daten werden ein Anfangsdatum und ein Enddatum übergeben, sodass der Server nur Daten im entsprechenden Zeitrahmen zurück sendet. Außerdem werden Verbräuche mit Verbrauchsnamen gekennzeichnet. Anhand dieser Namen werden gleichnamige zusammengerechnet und zur besseren Übersicht gegliedert (s. Abbildung~\ref{fig:Consumptions}). Eine qualitative Bewertung der Daten findet nicht statt, die Daten werden unabhängig von Einheiten verarbeitet.
 
 \begin{figure}[htb]
 	\centering
